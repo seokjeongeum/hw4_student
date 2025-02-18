@@ -347,7 +347,7 @@ dependencies:
     - gym==0.18.0
     - ipdb==0.13.5
     - markdown==3.3.4
-    - mujoco-py==2.0.2.13
+    - mujoco-py==2.0.2.8
     - numpy==1.20.0
     - oauthlib==3.1.0
     - pillow==7.2.0
