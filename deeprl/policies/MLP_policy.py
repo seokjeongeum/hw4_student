@@ -218,7 +218,7 @@ class MLPPolicyAC(MLPPolicy):
         if self.discrete:
             return super(MLPPolicyAC).forward(observations)
         else:
-            base_dist = super(MLPPolicyAC, self).forward(observations)
+            base_dist = super().forward(observations)
             # for AC methods, we need to ensure actions sampled from the env
             # are valid actions for the environment.
             # Since the action spaces are bounded between [-1, 1], we apply
@@ -237,7 +237,7 @@ class MLPPolicyAC(MLPPolicy):
         distributions, look at the rsample function to differentiate through 
         samples from the action distribution.
         """
-        loss = None
+        loss = -critic(observations, self(observations).rsample()).mean()
         """
         END CODE
         """
